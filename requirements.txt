@@ -14,4 +14,3 @@ warnings
 pyswarm
 GPUtil
 time
-python -m pip install --upgrade pip
