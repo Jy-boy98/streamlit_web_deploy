@@ -1,0 +1,16 @@
+streamlit
+numpy
+pandas
+argparse
+parse 
+pathlib
+datetime
+sklearn
+mlxtend 
+xgboost
+matplotlib
+seaborn
+warnings
+pyswarm
+GPUtil
+time
