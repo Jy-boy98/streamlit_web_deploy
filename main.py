@@ -3,86 +3,72 @@ from home_page import home_page
 from preprocessing_page import preprocessing_page
 
 def project_description_page():
-    st.title("생산시스템구축실무 프로젝트")
-    st.subheader("생산공정 최적화를 위한 콘택트렌즈의 도수와 금형조합")
-    
+
+    st.set_page_config(
+        page_title="Lens Process Optimization",
+        page_icon="📊",
+        layout="wide"
+    )
+
+    st.title("Lens Process Optimization Dashboard")
+    st.caption("생산공정 데이터를 활용한 콘택트렌즈 도수 예측 및 최적 금형 조합 추천")
+
     st.markdown("---")
 
-    st.header("프로젝트 개요")
-    st.write("""
-    콘택트렌즈 생산 공정 데이터를 활용하여
-    생산 조건과 렌즈 도수 간의 관계를 분석하고,
-    머신러닝 모델을 통해 목표 도수에 적합한
-    생산 조건을 도출하는 프로젝트입니다.
-    """)
+    # 핵심 요약 카드
+    c1, c2, c3, c4 = st.columns(4)
 
-    st.header("프로젝트 목표")
-    st.write("""
-    - 생산 데이터 전처리 및 이상치 제거
-    - 주요 생산 변수 간 상관관계 분석
-    - XGBoost 기반 렌즈 도수 예측 모델 구축
-    - 목표 도수에 적합한 금형 조합 및 생산 조건 추천
-    """)
+    with c1:
+        st.metric("분석 데이터", "162K+ rows")
 
-    st.header("주요 데이터")
-    st.write("""
-    분석에 사용되는 주요 변수는 다음과 같습니다.
-    """)
+    with c2:
+        st.metric("주요 변수", "44 Features")
 
-    col1, col2 = st.columns(2)
+    with c3:
+        st.metric("예측 모델", "XGBoost")
 
-    with col1:
-        st.subheader("생산 조건")
-        st.write("""
-        - EQUIP_ID : 생산 설비
-        - MOLD_POS : 금형 위치
-        - MOLD_IN_TOP
-        - MOLD_IN_BOT
-        - MOLD_OUT_TOP
-        - MOLD_OUT_BOT
-        """)
+    with c4:
+        st.metric("최적화 목표", "Power Prediction")
 
-    with col2:
-        st.subheader("렌즈 데이터")
-        st.write("""
-        - IN_RADIUS : 내부 곡률
-        - OUT_RADIUS : 외부 곡률
-        - REAL_POWER : 최종 렌즈 도수
-        - POWER1 ~ POWER5 : 측정 도수
-        """)
-
-    st.header("분석 프로세스")
+    st.markdown("### Project Overview")
 
     st.write("""
-    ① 원본 데이터 확인  
-    ↓  
-    ② 결측값 처리  
-    ↓  
-    ③ 데이터 형 변환  
-    ↓  
-    ④ 이상치 제거  
-    ↓  
-    ⑤ 변수 간 상관관계 분석  
-    ↓  
-    ⑥ XGBoost 모델 학습  
-    ↓  
-    ⑦ 목표 도수 예측  
-    ↓  
-    ⑧ 최적 금형 조합 추천
+    본 프로젝트는 콘택트렌즈 생산 공정 데이터를 기반으로
+    설비, 금형 위치, 금형 조합, 곡률값 등의 생산 조건과
+    최종 렌즈 도수 간의 관계를 분석하는 데이터 기반 생산 최적화 프로젝트입니다.
+
+    전처리 및 이상치 제거 후 머신러닝 모델을 학습하고,
+    사용자가 원하는 목표 도수에 적합한 생산 조건과 금형 조합을 추천합니다.
     """)
 
-    st.header("사용 기술")
+    st.markdown("### Analysis Pipeline")
 
-    st.write("""
-    Python / Streamlit / Pandas / NumPy / Scikit-learn / XGBoost / Matplotlib / Seaborn
-    """)
+    p1, p2, p3, p4 = st.columns(4)
 
-    st.header("프로젝트 결과")
-    st.write("""
-    생산 데이터를 기반으로 렌즈 생산 조건과 도수 간 관계를 분석하고,
-    머신러닝 모델을 활용하여 목표 렌즈 도수에 적합한 생산 조건을
-    예측할 수 있는 데이터 분석 시스템을 구현합니다.
-    """)
+    with p1:
+        st.info("① Data Preprocessing\n\n결측값 / 형변환 / 이상치 제거")
+
+    with p2:
+        st.info("② Data Analysis\n\n상관관계 및 생산 변수 분석")
+
+    with p3:
+        st.info("③ Model Training\n\nXGBoost 기반 도수 예측")
+
+    with p4:
+        st.info("④ Optimization\n\n최적 금형 조합 추천")
+
+    st.markdown("### Tech Stack")
+
+    st.code(
+        "Python | Streamlit | Pandas | NumPy | Scikit-learn | XGBoost | Matplotlib | Seaborn",
+        language=None
+    )
+
+    st.markdown("---")
+
+    st.success(
+        "왼쪽 사이드바에서 CSV Input 또는 Preprocessing / Visualization / Analyzing 메뉴를 선택해 분석을 시작하세요."
+    )
 
 def main():
     st.sidebar.title("Contents")
