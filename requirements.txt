@@ -1,0 +1,11 @@
+streamlit
+numpy
+pandas
+parse
+scikit-learn
+mlxtend
+xgboost
+matplotlib
+seaborn
+pyswarm
+GPUtil
