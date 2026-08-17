@@ -893,7 +893,7 @@ def analysis_data():
             EQUIP_INFO+CORES,
             as_index=False,
             sort=False
-        ).median()
+        ).median(numeric_only= True)
 
 
         # ###  중복 결과데이터 삭제(2) : EQUIP_ID, MOLD_POS, CORES가 일치하는 데이터끼리 묶고 나머지 값의 중위수를 찾는다.
@@ -905,7 +905,7 @@ def analysis_data():
             EQUIP_INFO+CORES,
             as_index=False,
             sort=False
-        ).median()
+        ).median(numeric_only= True)
 
         df_result = pd.concat([df_result, df_temp_result])
 
