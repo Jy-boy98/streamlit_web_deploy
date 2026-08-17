@@ -618,7 +618,7 @@ def analysis_data():
         plt.text(N_ESTIMATORS, 0.09, 'Minimum mae \n= '+str(min(xgb_val['validation_0']['mae'])))
         plt.plot(xgb_val['validation_0']['mae'], label='Training loss')
         plt.plot(xgb_val['validation_1']['mae'], label='Validation loss')
-        plt.axvline(regressor.best_ntree_limit, color='gray', label='Optimal tree number')
+        plt.axvline(regressor.best_iteration, color='gray', label='Optimal tree number')
         plt.xlabel('Number of trees')
         plt.ylabel('Loss(log)')
         plt.legend()
