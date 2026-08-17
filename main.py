@@ -10,7 +10,7 @@ def project_description_page():
         layout="wide"
     )
 
-    st.title("Lens Process Optimization Dashboard")
+    st.title("Lens Process Optimization Recommendation")
     st.caption("생산공정 데이터를 활용한 콘택트렌즈 도수 예측 및 최적 금형 조합 추천")
 
     st.markdown("---")
