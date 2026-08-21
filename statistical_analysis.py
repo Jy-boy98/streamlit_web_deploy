@@ -403,7 +403,7 @@ def analysis_data():
     st.subheader("생산 조건 입력")
     c1, c2 = st.columns([2,2]) # 각 열 간의 간격 조절
     with c1:
-        examples_number = int(st.number_input('샘플을 만들 개수 :'))
+        examples_number = st.number_input('샘플을 만들 개수 :', min_value=0, value = 0, step=1, format="%d")
     df_sample = df_raw.groupby(['CATEGORY']+EQUIP_INFO+['REAL_POWER','MOLD_IN_TOP']).count().reset_index()
     df_sample = df_sample[df_sample['POWER1'] > 10].sort_values(by=['POWER1'], ascending=False)
     df_sample = df_sample[df_sample['CATEGORY']=='MYOPIA']
@@ -416,7 +416,7 @@ def analysis_data():
         # In[147]:
 
     with c2:
-        idx_sample = st.number_input('샘플데이터 중 원하는 데이터의 인덱스를 입력해주세요: ')
+        idx_sample = st.number_input('샘플데이터 중 원하는 데이터의 인덱스를 입력해주세요: ', min_value=0, value = 0, step=1, format="%d")
     idx_sample = int(idx_sample)
     equipment_id = df_sample.iloc[idx_sample]['EQUIP_ID']
     mold_position = df_sample.iloc[idx_sample]['MOLD_POS']
